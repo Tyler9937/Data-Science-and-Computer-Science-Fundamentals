@@ -5,13 +5,13 @@ class Complex:
 
     def add(self, added):
         return self.initial + added
-    
+
     def subtract(self, subtracted):
         return self.initial - subtracted
-    
+
     def multiply(self, multiplied):
         return self.initial * multiplied
-    
+
     def divide(self, divided):
         return self.initial / divided
 

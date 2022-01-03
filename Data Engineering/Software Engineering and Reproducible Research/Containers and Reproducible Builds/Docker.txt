@@ -1,0 +1,9 @@
+Docker from my understanding is more than just a pip virtual enviornment it is a enviorment that 
+hosts an entire operating system so that code and projects can be shipped to any system that
+has docker installed on it.
+
+Couple of reasources:
+
+https://github.com/ageron/handson-ml
+
+a repo of data science projects all hosted in docker for easy shipping.

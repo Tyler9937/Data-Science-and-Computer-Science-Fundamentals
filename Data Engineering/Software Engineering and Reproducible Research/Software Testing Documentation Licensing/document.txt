@@ -1,0 +1,3 @@
+Commenting and documenting code is very important. this can be done with inline comments and multyline comments.
+mulitline comments or docstrings will be ignored by the interpretor and will be picked up by pydoc. when ever help() is run
+in the repel these docstrings will be grabbed and displayed. documentation and testing is critical to code.

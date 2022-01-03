@@ -1,0 +1,3 @@
+I find sql intresting with how similar it is to pandas as far as how you may go about finding data in a dataframe or merging multiple dataframes
+together or even creating  entirly new dataframe. however this idea of being able to navigate a database is very powerfull and I can see it being
+applied to web applications in a usefull way.

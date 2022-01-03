@@ -1,0 +1,17 @@
+The immediate obvious cost of a relational database is the necessity of robustly specifying a schema, including relations between relevant tables. Another cost that becomes quickly evident with a real-world application - things change! And, while you can use ALTER TABLE to update your schema, it can be pretty tricky to do so and preserve/update existing data to not lose it.
+
+Another prominent cost, and the main motivation of “big data” proponents of NoSQL, is scalability. Traditional relational databases need to fit an index for all keys (and sometimes other attributes) in memory - this limits the ability to grow the data beyond a certain size (namely the size where all of your keys fit in however much RAM you can afford).
+
+This was highly important in the history of Google and several other major Internet companies, as they needed to figure out how to scale while using large quantities of relatively cheap commodity hardware. The solution is to distribute work across computers - but that requires structuring the work (and the end result) in a fairly clever way. More on this in the next sprint with Apache Spark!
+
+But it’s also important to note that, in present day, RAM is actually pretty cheap, and your data is probably not as big as you think it is. Unless you literally have hundreds of millions of users (and maybe even then), you can with proper structure fit things in main memory and use a relational approach.
+
+So, what are the advantages of a relational approach? ACID - Atomicity, Consistency, Isolation, Durability - a set of guarantees provided by the use of transactions to ensure that data is always in a valid state, even if e.g. a query inserting new data is interrupted by a failure of any sort (including external to the system such as a power outage).
+
+Atomicity: a transaction functions as a “unit” - it either succeeds completely, or fails completely
+Consistency: transactions can only change a database from a valid state to another valid state
+Isolation: concurrent transactions are isolated from each other, so they have the same results as if they were run sequentially
+Durability: once a transaction has finished it will survive runtime system failure (it is recorded in non-volatile memory)
+That’s a pretty nice set of guarantees! It should be clear why, for instance, financial data is often suited for the ACID paradigm. But in general, ACID just means “things work reliably as you’d expect”, and it’s nice to have for any application.
+
+If relational databases have ACID guarantees, what do non-relational approaches have? They usually give up or weaken one of the four qualities - for instance, many big data systems are “eventually consistent”. This means that there can be intermediary states where the data is actually not consistent, but over time it reaches consistency. The typical acronym for adopting eventual consistency is BASE - Basically Available, Soft state, Eventually consistent.

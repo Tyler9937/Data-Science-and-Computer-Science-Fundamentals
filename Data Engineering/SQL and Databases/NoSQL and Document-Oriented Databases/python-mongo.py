@@ -1,9 +1,6 @@
 import pymongo
 
-USERNAME = 'simpleusername'
-PASSWORD = 'hnD@m.jLd@qBXm5'
-encodedpassword = 'hnD%40m.jLd%40qBXm5'
-
+# Connecting to mongodb
 client = pymongo.MongoClient("mongodb+srv://simpleusername:hnD%40m.jLd%40qBXm5@cluster0.304uj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 db = client.test
 

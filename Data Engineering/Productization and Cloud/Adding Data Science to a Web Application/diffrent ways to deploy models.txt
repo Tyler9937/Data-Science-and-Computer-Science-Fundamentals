@@ -1,0 +1,4 @@
+pickle
+joblib
+database blob
+catching redis? python dictionay in the cloud

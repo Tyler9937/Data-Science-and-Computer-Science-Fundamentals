@@ -1,0 +1,18 @@
+To deploy to Heroku, you need to:
+
+Install the Heroku CLI
+Add a few dependencies to your project - pipenv install gunicorn psycopg2 (gunicorn for production webserver, psycopg2 for connecting to production PostgreSQL database)
+Doublecheck that you’re using python-dotenv properly for your API keys/secrets (nothing should be hardcoded)
+Make a file Procfile in the base of your repo - this tells Heroku what process to run to start the app, and should look like web: gunicorn twitoff:APP -t 120 (start a web dyno running gunicorn with twitoff:APP)
+Create a new Heroku app from the Heroku website
+Add it as a remote to your project repo, e.g. heroku git:remote -a username-twitoff
+Commit, and git push heroku master
+Fix things! Specifically config vars (see next section) for API keys/secrets, and heroku addons:create heroku-postgresql:hobby-dev to create your cloud PostgreSQL database
+CHALLENGE
+Get as far as you can in the above steps before coming to lecture! This is not an easy thing to do, especially if you’re not used to the command line. Some useful problem solving techniques:
+
+heroku logs gives you your log output, and can be useful for debugging deploys that finish but then give 500 errors
+heroku run /bin/bash will give you a regular command line in your Heroku instance
+heroku run flask shell will give you a Flask shell in your Heroku instance
+heroku pg:psql will give you a PostgreSQL prompt in your Heroku instance
+It’s OK (and expected) for you to not get all the way through, but push a bit to stretch, and ask others for help. We’ll work through it together in lecture, and you can get more help afterwards as well.
